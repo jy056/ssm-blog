@@ -1,0 +1,38 @@
+# JSP配置	tab==》空格	禁止使用tab	要一个空格以上
+spring:
+  mvc:
+    view:
+      prefix: WEB-INF/jsp/
+      suffix: .jsp
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/bank
+    username: root
+    password: a
+    driver-class-name: com.mysql.jdbc.Driver
+            
+  #邮件服务配置 
+  mail:
+    #邮箱服务地址
+    host: smtp.qq.com
+    #用户名   
+    username: 2778380014@qq.com
+    #发送密码。是开启pop3相关权限的密码
+    password: euglirluzbmvdeaf
+    #默认字符集编码
+    default-encoding: UTF-8
+
+#更改端口号    
+#server:
+#  port: 80
+  
+#发送地址
+mail:
+  fromMail:
+    addr: 2778380014@qq.com
+    
+#日志输出
+logging:
+  level:
+    com:
+      yc: debug
