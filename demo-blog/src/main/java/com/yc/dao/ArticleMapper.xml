@@ -20,7 +20,18 @@
     <result column="readCnt" jdbcType="INTEGER" property="readcnt" />
     <result column="agreeCnt" jdbcType="INTEGER" property="agreecnt" />
     <result column="commCnt" jdbcType="INTEGER" property="commcnt" />
+    
+    <association property="category" column="categoryId" fetchType="lazy"
+    select="com.yc.dao.CategoryMapper.selectByPrimaryKey"></association>
+    
+    <collection property="comments" column="id" fetchType="lazy"
+    	select="selectCommentByArticleid">
+    </collection>
   </resultMap>
+  <select id="selectCommentByArticleid" resultMap="com.yc.dao.CommentMapper.BaseResultMap">
+  	select * from comment where articleid=#{aid}
+  </select>
+  
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yc.bean.Article">
     <!--
       WARNING - @mbg.generated

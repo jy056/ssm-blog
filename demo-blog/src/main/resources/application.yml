@@ -6,10 +6,22 @@ spring:
       suffix: .jsp
       
   datasource:
-    url: jdbc:mysql://localhost:3306/bank
+    url: jdbc:mysql://localhost:3306/blog
     username: root
     password: a
     driver-class-name: com.mysql.jdbc.Driver
+  #解决文件上传，文件名乱码导致无法上传问题
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+      
+  resources:
+    #web文件映射（数组）
+    staticLocations:
+      - classpath:/static/
+      - file:/d:/blog/
             
   #邮件服务配置 
   mail:
@@ -23,8 +35,10 @@ spring:
     default-encoding: UTF-8
 
 #更改端口号    
-#server:
-#  port: 80
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
   
 #发送地址
 mail:
